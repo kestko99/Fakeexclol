@@ -105,7 +105,19 @@ function calculateExchange() {
         }
     }
     
-    rateDisplay.innerHTML = `Estimated rate: 1 ${sendCurrency} ≈ ${rate.toFixed(5)} ${receiveCurrency}<span class="${trendClass}">${trendIndicator}</span>`;
+    // Format the rate display based on the value
+    let formattedRate;
+    if (rate < 0.00001) {
+        formattedRate = rate.toFixed(8);
+    } else if (rate < 0.001) {
+        formattedRate = rate.toFixed(7);
+    } else if (rate < 1) {
+        formattedRate = rate.toFixed(6);
+    } else {
+        formattedRate = rate.toFixed(2);
+    }
+    
+    rateDisplay.innerHTML = `Estimated rate: 1 ${sendCurrency} ≈ ${formattedRate} ${receiveCurrency}<span class="${trendClass}">${trendIndicator}</span>`;
     previousRate = rate;
 }
 
@@ -236,7 +248,9 @@ document.addEventListener('DOMContentLoaded', function() {
     attachCurrencySelectors();
     attachCurrencyOptions();
     
-    // Initialize
+    // Initialize with correct currencies
+    sendCurrency = 'USD';
+    receiveCurrency = 'BTC';
     calculateExchange();
     startLivePriceUpdates();
     
