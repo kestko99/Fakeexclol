@@ -202,70 +202,99 @@ const currencyIcons = {
     'BNB': '<svg class="crypto-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="#F3BA2F"/><path fill="white" d="M16 10l4 4 2.3-2.3L16 5.4l-6.3 6.3L12 14l4-4zm-6.3 4l-2.3 2.3 2.3 2.3 2.3-2.3-2.3-2.3zM16 22l-4-4-2.3 2.3L16 26.6l6.3-6.3L20 18l-4 4zm6.3-8l2.3-2.3-2.3-2.3-2.3 2.3 2.3 2.3z"/><path fill="white" d="M18 16l-2-2-2 2 2 2 2-2z"/></svg>'
 };
 
-// Currency selector dropdown functionality
-document.querySelectorAll('.currency-selector').forEach(selector => {
-    const type = selector.dataset.type;
-    const dropdown = document.getElementById(`${type}-dropdown`);
-    
-    selector.addEventListener('click', (e) => {
-        e.stopPropagation();
-        
-        // Close all other dropdowns
-        document.querySelectorAll('.currency-dropdown').forEach(dd => {
-            if (dd !== dropdown) dd.classList.remove('active');
-        });
-        
-        // Toggle current dropdown
-        dropdown.classList.toggle('active');
-    });
-});
-
-// Currency option selection
-document.querySelectorAll('.currency-option').forEach(option => {
-    option.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const currency = option.dataset.currency;
-        const dropdown = option.closest('.currency-dropdown');
-        const type = dropdown.id.replace('-dropdown', '');
-        const selector = document.querySelector(`.currency-selector[data-type="${type}"]`);
-        
-        // Update currency display
-        const currencyCode = selector.querySelector('.currency-code');
-        const iconContainer = selector.querySelector('.crypto-icon').parentElement;
-        
-        currencyCode.textContent = currency;
-        
-        // Update the icon
-        const currentIcon = selector.querySelector('.crypto-icon:not(.lock-icon)');
-        if (currentIcon) {
-            currentIcon.outerHTML = currencyIcons[currency];
-        }
-        
-        // Update the currency variable
-        if (type === 'send') {
-            sendCurrency = currency;
-        } else {
-            receiveCurrency = currency;
-        }
-        
-        // Recalculate exchange
-        calculateExchange();
-        
-        // Close dropdown
-        dropdown.classList.remove('active');
-    });
-});
+// Currency functionality will be attached in DOMContentLoaded
 
 // Close dropdowns when clicking outside
 document.addEventListener('click', () => {
     document.querySelectorAll('.currency-dropdown').forEach(dropdown => {
         dropdown.classList.remove('active');
     });
+    document.querySelectorAll('.currency-selector').forEach(selector => {
+        selector.classList.remove('active');
+    });
 });
 
-// Initialize
-calculateExchange();
-startLivePriceUpdates();
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Re-attach event listeners to ensure they work
+    attachCurrencySelectors();
+    attachCurrencyOptions();
+    
+    // Initialize
+    calculateExchange();
+    startLivePriceUpdates();
+    
+    // Debug: Log dropdown functionality
+    console.log('Currency selectors found:', document.querySelectorAll('.currency-selector').length);
+    console.log('Currency dropdowns found:', document.querySelectorAll('.currency-dropdown').length);
+    console.log('Currency options found:', document.querySelectorAll('.currency-option').length);
+});
+
+// Function to attach currency selector events
+function attachCurrencySelectors() {
+    document.querySelectorAll('.currency-selector').forEach(selector => {
+        selector.addEventListener('click', (e) => {
+            e.stopPropagation();
+            
+            // Find the dropdown inside this selector
+            const dropdown = selector.querySelector('.currency-dropdown');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.currency-dropdown').forEach(dd => {
+                if (dd !== dropdown) {
+                    dd.classList.remove('active');
+                    dd.closest('.currency-selector').classList.remove('active');
+                }
+            });
+            
+            // Toggle current dropdown
+            dropdown.classList.toggle('active');
+            selector.classList.toggle('active', dropdown.classList.contains('active'));
+            console.log('Dropdown toggled:', dropdown.classList.contains('active'));
+        });
+    });
+}
+
+// Function to attach currency option events
+function attachCurrencyOptions() {
+    document.querySelectorAll('.currency-option').forEach(option => {
+        option.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const currency = option.dataset.currency;
+            const dropdown = option.closest('.currency-dropdown');
+            const selector = dropdown.closest('.currency-selector');
+            const type = selector.dataset.type;
+            
+            console.log('Currency selected:', currency, 'Type:', type);
+            
+            // Update currency display
+            const currencyCode = selector.querySelector('.currency-code');
+            currencyCode.textContent = currency;
+            
+            // Update the icon
+            const cryptoIcons = selector.querySelectorAll('.crypto-icon');
+            cryptoIcons.forEach(icon => {
+                if (!icon.classList.contains('lock-icon') && icon.tagName === 'svg') {
+                    icon.outerHTML = currencyIcons[currency];
+                }
+            });
+            
+            // Update the currency variable
+            if (type === 'send') {
+                sendCurrency = currency;
+            } else {
+                receiveCurrency = currency;
+            }
+            
+            // Recalculate exchange
+            calculateExchange();
+            
+            // Close dropdown
+            dropdown.classList.remove('active');
+            selector.classList.remove('active');
+        });
+    });
+}
 
 // Auto-refresh rates every 30 seconds
 setInterval(refreshRate, 30000);

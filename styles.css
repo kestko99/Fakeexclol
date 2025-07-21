@@ -259,9 +259,14 @@ body > * {
 
 .currency-selector:hover {
     background: rgba(74, 74, 85, 0.9);
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 255, 136, 0.4);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.15);
+}
+
+.currency-selector:active {
+    transform: translateY(0);
+    background: rgba(74, 74, 85, 1);
 }
 
 .crypto-icon {
@@ -276,13 +281,19 @@ body > * {
 }
 
 .dropdown-arrow {
-    color: rgba(255, 255, 255, 0.5);
+    color: #00ff88;
     font-size: 12px;
-    transition: transform 0.3s;
+    transition: all 0.3s;
+    margin-left: 4px;
 }
 
 .currency-selector:hover .dropdown-arrow {
     transform: translateY(2px);
+    color: #00ff88;
+}
+
+.currency-selector.active .dropdown-arrow {
+    transform: rotate(180deg);
 }
 
 /* Currency Dropdown */
@@ -311,11 +322,11 @@ body > * {
 @keyframes dropdownSlide {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-10px) scale(0.95);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
@@ -338,8 +349,14 @@ body > * {
 }
 
 .currency-option:hover {
-    background: rgba(0, 255, 136, 0.1);
+    background: rgba(0, 255, 136, 0.15);
     padding-left: 24px;
+    border-left: 3px solid #00ff88;
+    cursor: pointer;
+}
+
+.currency-option:active {
+    background: rgba(0, 255, 136, 0.25);
 }
 
 .currency-option .crypto-icon {
