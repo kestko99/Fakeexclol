@@ -294,10 +294,12 @@ body > * {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    z-index: 100;
+    z-index: 1000;
     display: none;
     min-width: 200px;
-    overflow: hidden;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
     animation: dropdownSlide 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
