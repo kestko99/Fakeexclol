@@ -48,17 +48,21 @@
         <div class="exchange-form">
             <label>You Send</label>
             <div class="input-wrapper">
-                <input type="number" value="0.01" step="0.001" class="amount-input">
+                <input type="number" value="1000" step="0.01" class="amount-input">
                 <div class="currency-selector" data-type="send">
-                    <svg class="crypto-icon btc-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="16" cy="16" r="16" fill="#f7931a"/>
-                        <path fill="white" d="M21.2 14.3c.3-1.9-1.2-3-3.2-3.7l.7-2.6-1.6-.4-.6 2.6c-.4-.1-.9-.2-1.3-.3l.6-2.6-1.6-.4-.7 2.7c-.4-.1-.7-.2-1-.2l-2.2-.6-.4 1.7s1.2.3 1.2.3c.6.2.8.6.7.9l-.7 3c.1 0 .1 0 .2.1l-1.1 4.2c-.1.2-.3.5-.7.4l-1.2-.3-.8 1.8 2.1.5c.4.1.8.2 1.1.3l-.7 2.7 1.6.4.7-2.6c.4.1.9.2 1.3.3l-.7 2.6 1.6.4.7-2.7c2.7.5 4.8.3 5.6-2.2.7-2-.1-3.1-1.5-3.9 1.1-.2 1.8-.9 2-2.3zm-3.6 5.1c-.5 2-3.8.9-4.9.6l.9-3.5c1.1.3 4.5.8 4 2.9zm.5-5.1c-.4 1.8-3.2.9-4.1.7l.8-3.2c.9.2 3.8.6 3.3 2.5z"/>
+                    <svg class="crypto-icon usd-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="16" fill="#85bb65"/>
+                        <path fill="white" d="M17.5 8.5v-2h-3v2h-.5c-2.2 0-4 1.8-4 4s1.8 4 4 4h4c.6 0 1 .4 1 1s-.4 1-1 1h-4c-.6 0-1-.4-1-1h-3c0 2.2 1.8 4 4 4h.5v2h3v-2h.5c2.2 0 4-1.8 4-4s-1.8-4-4-4h-4c-.6 0-1-.4-1-1s.4-1 1-1h4c.6 0 1 .4 1 1h3c0-2.2-1.8-4-4-4h-.5z"/>
                     </svg>
-                    <span class="currency-code">BTC</span>
+                    <span class="currency-code">USD</span>
                     <span class="dropdown-arrow">▼</span>
                     <!-- Currency Dropdown Menu -->
-                    <div class="currency-dropdown" id="send-dropdown">
-                        <div class="currency-option" data-currency="BTC">
+                                            <div class="currency-dropdown" id="send-dropdown">
+                            <div class="currency-option" data-currency="USD">
+                                <svg class="crypto-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="#85bb65"/><path fill="white" d="M17.5 8.5v-2h-3v2h-.5c-2.2 0-4 1.8-4 4s1.8 4 4 4h4c.6 0 1 .4 1 1s-.4 1-1 1h-4c-.6 0-1-.4-1-1h-3c0 2.2 1.8 4 4 4h.5v2h3v-2h.5c2.2 0 4-1.8 4-4s-1.8-4-4-4h-4c-.6 0-1-.4-1-1s.4-1 1-1h4c.6 0 1 .4 1 1h3c0-2.2-1.8-4-4-4h-.5z"/></svg>
+                                <span>USD</span>
+                            </div>
+                            <div class="currency-option" data-currency="BTC">
                             <svg class="crypto-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="#f7931a"/><path fill="white" d="M21.2 14.3c.3-1.9-1.2-3-3.2-3.7l.7-2.6-1.6-.4-.6 2.6c-.4-.1-.9-.2-1.3-.3l.6-2.6-1.6-.4-.7 2.7c-.4-.1-.7-.2-1-.2l-2.2-.6-.4 1.7s1.2.3 1.2.3c.6.2.8.6.7.9l-.7 3c.1 0 .1 0 .2.1l-1.1 4.2c-.1.2-.3.5-.7.4l-1.2-.3-.8 1.8 2.1.5c.4.1.8.2 1.1.3l-.7 2.7 1.6.4.7-2.6c.4.1.9.2 1.3.3l-.7 2.6 1.6.4.7-2.7c2.7.5 4.8.3 5.6-2.2.7-2-.1-3.1-1.5-3.9 1.1-.2 1.8-.9 2-2.3zm-3.6 5.1c-.5 2-3.8.9-4.9.6l.9-3.5c1.1.3 4.5.8 4 2.9zm.5-5.1c-.4 1.8-3.2.9-4.1.7l.8-3.2c.9.2 3.8.6 3.3 2.5z"/></svg>
                             <span>BTC</span>
                         </div>
@@ -93,20 +97,19 @@
                     <svg class="lock-icon" width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 6H11V4C11 1.79086 9.20914 0 7 0C4.79086 0 3 1.79086 3 4V6H2C0.89543 6 0 6.89543 0 8V14C0 15.1046 0.89543 16 2 16H12C13.1046 16 14 15.1046 14 14V8C14 6.89543 13.1046 6 12 6ZM5 4C5 2.89543 5.89543 2 7 2C8.10457 2 9 2.89543 9 4V6H5V4Z" fill="#888888"/>
                     </svg>
-                    <svg class="crypto-icon eth-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="16" cy="16" r="16" fill="#627EEA"/>
-                        <path fill="white" d="M16 4v8.9l7.5 3.3L16 4z"/>
-                        <path fill="white" opacity="0.6" d="M16 4l-7.5 12.2L16 12.9V4z"/>
-                        <path fill="white" d="M16 21.97v6.03l7.5-10.38L16 21.97z"/>
-                        <path fill="white" opacity="0.6" d="M16 28v-6.03l-7.5-4.35L16 28z"/>
-                        <path fill="white" opacity="0.2" d="M16 20.57l7.5-4.35L16 12.87v7.7z"/>
-                        <path fill="white" opacity="0.6" d="M8.5 16.22L16 20.57v-7.7l-7.5 3.35z"/>
+                    <svg class="crypto-icon btc-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="16" fill="#f7931a"/>
+                        <path fill="white" d="M21.2 14.3c.3-1.9-1.2-3-3.2-3.7l.7-2.6-1.6-.4-.6 2.6c-.4-.1-.9-.2-1.3-.3l.6-2.6-1.6-.4-.7 2.7c-.4-.1-.7-.2-1-.2l-2.2-.6-.4 1.7s1.2.3 1.2.3c.6.2.8.6.7.9l-.7 3c.1 0 .1 0 .2.1l-1.1 4.2c-.1.2-.3.5-.7.4l-1.2-.3-.8 1.8 2.1.5c.4.1.8.2 1.1.3l-.7 2.7 1.6.4.7-2.6c.4.1.9.2 1.3.3l-.7 2.6 1.6.4.7-2.7c2.7.5 4.8.3 5.6-2.2.7-2-.1-3.1-1.5-3.9 1.1-.2 1.8-.9 2-2.3zm-3.6 5.1c-.5 2-3.8.9-4.9.6l.9-3.5c1.1.3 4.5.8 4 2.9zm.5-5.1c-.4 1.8-3.2.9-4.1.7l.8-3.2c.9.2 3.8.6 3.3 2.5z"/>
                     </svg>
-                    <span class="currency-code">ETH</span>
+                    <span class="currency-code">BTC</span>
                     <span class="dropdown-arrow">▼</span>
                     <!-- Currency Dropdown Menu -->
-                    <div class="currency-dropdown" id="receive-dropdown">
-                        <div class="currency-option" data-currency="BTC">
+                                            <div class="currency-dropdown" id="receive-dropdown">
+                            <div class="currency-option" data-currency="USD">
+                                <svg class="crypto-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="#85bb65"/><path fill="white" d="M17.5 8.5v-2h-3v2h-.5c-2.2 0-4 1.8-4 4s1.8 4 4 4h4c.6 0 1 .4 1 1s-.4 1-1 1h-4c-.6 0-1-.4-1-1h-3c0 2.2 1.8 4 4 4h.5v2h3v-2h.5c2.2 0 4-1.8 4-4s-1.8-4-4-4h-4c-.6 0-1-.4-1-1s.4-1 1-1h4c.6 0 1 .4 1 1h3c0-2.2-1.8-4-4-4h-.5z"/></svg>
+                                <span>USD</span>
+                            </div>
+                            <div class="currency-option" data-currency="BTC">
                             <svg class="crypto-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="#f7931a"/><path fill="white" d="M21.2 14.3c.3-1.9-1.2-3-3.2-3.7l.7-2.6-1.6-.4-.6 2.6c-.4-.1-.9-.2-1.3-.3l.6-2.6-1.6-.4-.7 2.7c-.4-.1-.7-.2-1-.2l-2.2-.6-.4 1.7s1.2.3 1.2.3c.6.2.8.6.7.9l-.7 3c.1 0 .1 0 .2.1l-1.1 4.2c-.1.2-.3.5-.7.4l-1.2-.3-.8 1.8 2.1.5c.4.1.8.2 1.1.3l-.7 2.7 1.6.4.7-2.6c.4.1.9.2 1.3.3l-.7 2.6 1.6.4.7-2.7c2.7.5 4.8.3 5.6-2.2.7-2-.1-3.1-1.5-3.9 1.1-.2 1.8-.9 2-2.3zm-3.6 5.1c-.5 2-3.8.9-4.9.6l.9-3.5c1.1.3 4.5.8 4 2.9zm.5-5.1c-.4 1.8-3.2.9-4.1.7l.8-3.2c.9.2 3.8.6 3.3 2.5z"/></svg>
                             <span>BTC</span>
                         </div>
@@ -136,7 +139,7 @@
 
             <!-- Exchange Rate -->
             <div class="exchange-rate">
-                <span>Estimated rate: 1 BTC ≈ 30.78897 ETH</span>
+                <span>Estimated rate: 1 USD ≈ 0.0000153 BTC</span>
                 <button class="refresh-btn">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13.65 2.35C12.2 0.9 10.21 0 8 0C3.58 0 0 3.58 0 8C0 12.42 3.58 16 8 16C11.73 16 14.84 13.45 15.73 10H13.65C12.83 12.33 10.61 14 8 14C4.69 14 2 11.31 2 8C2 4.69 4.69 2 8 2C9.66 2 11.14 2.69 12.22 3.78L9 7H16V0L13.65 2.35Z" fill="#00ff88"/>

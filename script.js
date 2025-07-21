@@ -1,6 +1,16 @@
 // Exchange rates (mock data - in real app, these would come from an API)
 const exchangeRates = {
+    'USD': {
+        'BTC': 0.0000153,
+        'ETH': 0.000471,
+        'USDT': 1,
+        'USDC': 1,
+        'SOL': 0.00997,
+        'BNB': 0.00217,
+        'USD': 1
+    },
     'BTC': {
+        'USD': 65432.50,
         'ETH': 30.78897,
         'BTC': 1,
         'USDT': 65432.50,
@@ -9,6 +19,7 @@ const exchangeRates = {
         'BNB': 142.35
     },
     'ETH': {
+        'USD': 2125.50,
         'BTC': 0.0325,
         'ETH': 1,
         'USDT': 2125.50,
@@ -17,6 +28,7 @@ const exchangeRates = {
         'BNB': 4.62
     },
     'USDT': {
+        'USD': 1,
         'BTC': 0.0000153,
         'ETH': 0.000471,
         'USDT': 1,
@@ -25,6 +37,7 @@ const exchangeRates = {
         'BNB': 0.00217
     },
     'USDC': {
+        'USD': 1,
         'BTC': 0.0000153,
         'ETH': 0.000471,
         'USDT': 1,
@@ -33,6 +46,7 @@ const exchangeRates = {
         'BNB': 0.00217
     },
     'SOL': {
+        'USD': 100.25,
         'BTC': 0.00153,
         'ETH': 0.0472,
         'USDT': 100.25,
@@ -41,6 +55,7 @@ const exchangeRates = {
         'BNB': 0.218
     },
     'BNB': {
+        'USD': 460.25,
         'BTC': 0.00703,
         'ETH': 0.217,
         'USDT': 460.25,
@@ -61,8 +76,8 @@ const cookieNotice = document.querySelector('.cookie-notice');
 const tabs = document.querySelectorAll('.tab');
 
 // Current currencies
-let sendCurrency = 'BTC';
-let receiveCurrency = 'ETH';
+let sendCurrency = 'USD';
+let receiveCurrency = 'BTC';
 
 // Store previous rate for comparison
 let previousRate = null;
@@ -194,6 +209,7 @@ refreshBtn.addEventListener('click', refreshRate);
 
 // Currency selector functionality
 const currencyIcons = {
+    'USD': '<svg class="crypto-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="#85bb65"/><path fill="white" d="M17.5 8.5v-2h-3v2h-.5c-2.2 0-4 1.8-4 4s1.8 4 4 4h4c.6 0 1 .4 1 1s-.4 1-1 1h-4c-.6 0-1-.4-1-1h-3c0 2.2 1.8 4 4 4h.5v2h3v-2h.5c2.2 0 4-1.8 4-4s-1.8-4-4-4h-4c-.6 0-1-.4-1-1s.4-1 1-1h4c.6 0 1 .4 1 1h3c0-2.2-1.8-4-4-4h-.5z"/></svg>',
     'BTC': '<svg class="crypto-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="#f7931a"/><path fill="white" d="M21.2 14.3c.3-1.9-1.2-3-3.2-3.7l.7-2.6-1.6-.4-.6 2.6c-.4-.1-.9-.2-1.3-.3l.6-2.6-1.6-.4-.7 2.7c-.4-.1-.7-.2-1-.2l-2.2-.6-.4 1.7s1.2.3 1.2.3c.6.2.8.6.7.9l-.7 3c.1 0 .1 0 .2.1l-1.1 4.2c-.1.2-.3.5-.7.4l-1.2-.3-.8 1.8 2.1.5c.4.1.8.2 1.1.3l-.7 2.7 1.6.4.7-2.6c.4.1.9.2 1.3.3l-.7 2.6 1.6.4.7-2.7c2.7.5 4.8.3 5.6-2.2.7-2-.1-3.1-1.5-3.9 1.1-.2 1.8-.9 2-2.3zm-3.6 5.1c-.5 2-3.8.9-4.9.6l.9-3.5c1.1.3 4.5.8 4 2.9zm.5-5.1c-.4 1.8-3.2.9-4.1.7l.8-3.2c.9.2 3.8.6 3.3 2.5z"/></svg>',
     'ETH': '<svg class="crypto-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="#627EEA"/><path fill="white" d="M16 4v8.9l7.5 3.3L16 4z"/><path fill="white" opacity="0.6" d="M16 4l-7.5 12.2L16 12.9V4z"/><path fill="white" d="M16 21.97v6.03l7.5-10.38L16 21.97z"/><path fill="white" opacity="0.6" d="M16 28v-6.03l-7.5-4.35L16 28z"/><path fill="white" opacity="0.2" d="M16 20.57l7.5-4.35L16 12.87v7.7z"/><path fill="white" opacity="0.6" d="M8.5 16.22L16 20.57v-7.7l-7.5 3.35z"/></svg>',
     'USDT': '<svg class="crypto-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="#26A17B"/><path fill="white" d="M17.9 17.4v-.002c0-.11-.08-.2-.21-.22-1.3-.13-2.61-.13-3.92 0-.13.02-.21.11-.21.22v.002c0 .11.08.2.21.22 1.3.13 2.61.13 3.92 0 .13-.02.21-.11.21-.22m5.84-4.44v4.53c0 .37-.03.74-.09 1.1l-3.88-.82v3.96c0 .27-.22.49-.49.49H12.7c-.27 0-.49-.22-.49-.49v-3.96l-3.88.82c-.06-.36-.09-.73-.09-1.1v-4.53c0-4.36 3.13-8 7.27-8.78v5.42H11.3v2.9h9.4v-2.9h-4.21V8.22c4.14.78 7.27 4.42 7.27 8.78"/></svg>',
