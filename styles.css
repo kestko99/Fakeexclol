@@ -124,6 +124,7 @@ body {
     border-radius: 12px;
     padding: 4px;
     align-items: center;
+    position: relative;
 }
 
 .amount-input {
@@ -167,6 +168,48 @@ body {
     font-size: 12px;
 }
 
+/* Currency Dropdown */
+.currency-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background-color: #2a2a35;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    display: none;
+    min-width: 180px;
+    overflow: hidden;
+}
+
+.currency-dropdown.active {
+    display: block;
+}
+
+.currency-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.currency-option:hover {
+    background-color: #3a3a45;
+}
+
+.currency-option .crypto-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.currency-option span {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
 /* Exchange Rate */
 .exchange-rate {
     display: flex;
@@ -176,6 +219,25 @@ body {
     margin: 16px 0;
     font-size: 14px;
     color: #8888aa;
+    transition: background-color 0.3s;
+}
+
+.exchange-rate.rate-flash {
+    background-color: rgba(0, 255, 136, 0.1);
+    border-radius: 8px;
+    padding: 12px 8px;
+}
+
+.rate-up {
+    color: #00ff88;
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+.rate-down {
+    color: #ff4444;
+    font-weight: 600;
+    margin-left: 4px;
 }
 
 .refresh-btn {
