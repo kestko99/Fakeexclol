@@ -198,7 +198,7 @@ const currencyIcons = {
     'ETH': '<svg class="crypto-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#627EEA"/><path fill="white" fill-opacity="0.602" d="M16.498 4v8.87l7.497 3.35z"/><path fill="white" d="M16.498 4L9 16.22l7.498-3.35z"/><path fill="white" fill-opacity="0.602" d="M16.498 21.968v6.027L24 17.616z"/><path fill="white" d="M16.498 27.995v-6.028L9 17.616z"/><path fill="white" fill-opacity="0.2" d="M16.498 20.573l7.497-4.353-7.497-3.348z"/><path fill="white" fill-opacity="0.602" d="M9 16.22l7.498 4.353v-7.701z"/></svg>',
     'USDT': '<svg class="crypto-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#26A17B"/><path fill="white" d="M17.9 17.4v-.002c0-.11-.08-.2-.21-.22-1.3-.13-2.61-.13-3.92 0-.13.02-.21.11-.21.22v.002c0 .11.08.2.21.22 1.3.13 2.61.13 3.92 0 .13-.02.21-.11.21-.22m5.84-4.44v4.53c0 .37-.03.74-.09 1.1l-3.88-.82v3.96c0 .27-.22.49-.49.49H12.7c-.27 0-.49-.22-.49-.49v-3.96l-3.88.82c-.06-.36-.09-.73-.09-1.1v-4.53c0-4.36 3.13-8 7.27-8.78v5.42H11.3v2.9h9.4v-2.9h-4.21V8.22c4.14.78 7.27 4.42 7.27 8.78"/></svg>',
     'USDC': '<svg class="crypto-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#2775CA"/><path fill="white" d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm5.7 8.5c0 1.17-.47 2.13-1.4 2.57-.47.22-.98.34-1.53.34-1.08 0-1.9-.46-2.46-1.37-.25-.41-.4-.86-.46-1.35h1.65c.04.26.13.48.27.66.26.33.63.5 1.1.5.36 0 .65-.1.86-.29.21-.19.32-.44.32-.74 0-.3-.11-.53-.32-.69-.21-.16-.57-.31-1.07-.46l-.82-.24c-.7-.21-1.2-.48-1.52-.82-.31-.34-.47-.78-.47-1.32 0-.68.24-1.23.73-1.65.48-.42 1.13-.63 1.94-.63.8 0 1.43.2 1.89.61.46.41.71.97.75 1.68h-1.59c-.05-.48-.34-.79-.85-.93-.17-.05-.36-.07-.58-.07-.38 0-.67.09-.87.28-.2.18-.3.41-.3.69 0 .28.11.5.34.65.13.09.36.18.67.28l1.04.31c.52.16.93.37 1.22.64.5.46.75 1.07.75 1.84zm-5.7 5v-1.5c-1.66 0-3-1.34-3-3h1.5c0 .83.67 1.5 1.5 1.5v-3c-1.66 0-3-1.34-3-3s1.34-3 3-3v-1.5h1v1.5c1.66 0 3 1.34 3 3h-1.5c0-.83-.67-1.5-1.5-1.5v3c1.66 0 3 1.34 3 3s-1.34 3-3 3v1.5h-1z"/></svg>',
-    'SOL': '<svg class="crypto-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#000"/><path fill="url(#solana-gradient)" d="M9.5 20.5c.2-.2.4-.3.7-.3h12.6c.4 0 .6.5.3.8l-2.6 2.5c-.2.2-.4.3-.7.3H7.2c-.4 0-.6-.5-.3-.8l2.6-2.5zm0-9c.2-.2.4-.3.7-.3h12.6c.4 0 .6.5.3.8l-2.6 2.5c-.2.2-.4.3-.7.3H7.2c-.4 0-.6-.5-.3-.8l2.6-2.5zm13 4.3c-.2.2-.4.3-.7.3H9.2c-.4 0-.6-.5-.3-.8l2.6-2.5c.2-.2.4-.3.7-.3h12.6c.4 0 .6.5.3.8l-2.6 2.5z"/><defs><linearGradient id="solana-gradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00FFA3"/><stop offset="100%" style="stop-color:#DC1FFF"/></linearGradient></defs></svg>',
+    'SOL': '<svg class="crypto-icon" viewBox="0 0 32 32"><defs><linearGradient id="solana-gradient-main" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00FFA3"/><stop offset="100%" style="stop-color:#DC1FFF"/></linearGradient></defs><circle cx="16" cy="16" r="16" fill="#000"/><path fill="url(#solana-gradient-main)" d="M9.5 20.5c.2-.2.4-.3.7-.3h12.6c.4 0 .6.5.3.8l-2.6 2.5c-.2.2-.4.3-.7.3H7.2c-.4 0-.6-.5-.3-.8l2.6-2.5zm0-9c.2-.2.4-.3.7-.3h12.6c.4 0 .6.5.3.8l-2.6 2.5c-.2.2-.4.3-.7.3H7.2c-.4 0-.6-.5-.3-.8l2.6-2.5zm13 4.3c-.2.2-.4.3-.7.3H9.2c-.4 0-.6-.5-.3-.8l2.6-2.5c.2-.2.4-.3.7-.3h12.6c.4 0 .6.5.3.8l-2.6 2.5z"/></svg>',
     'BNB': '<svg class="crypto-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#F3BA2F"/><path fill="white" d="M16 10.13l3.94 3.94 2.29-2.28L16 5.54 9.77 11.79l2.29 2.28L16 10.13zm-6.23 3.94l-2.29 2.28L9.77 18.64l2.29-2.29-2.29-2.28zM16 21.87l-3.94-3.94-2.29 2.28L16 26.46l6.23-6.25-2.29-2.28L16 21.87zm6.23-7.8l2.29-2.28-2.29-2.29-2.29 2.29 2.29 2.28z"/><path fill="white" d="M18.29 16.01l-2.3-2.3-2.28 2.3 2.28 2.28 2.3-2.28z"/></svg>'
 };
 
@@ -236,8 +236,10 @@ document.querySelectorAll('.currency-option').forEach(option => {
         currencyCode.textContent = currency;
         
         // Update the icon
-        const currentIcon = selector.querySelector('.crypto-icon');
-        currentIcon.outerHTML = currencyIcons[currency];
+        const currentIcon = selector.querySelector('.crypto-icon:not(.lock-icon)');
+        if (currentIcon) {
+            currentIcon.outerHTML = currencyIcons[currency];
+        }
         
         // Update the currency variable
         if (type === 'send') {
