@@ -51,8 +51,8 @@ const exchangeRates = {
 };
 
 // DOM Elements
-const sendAmountInput = document.querySelector('.input-group:first-child .amount-input');
-const receiveAmountInput = document.querySelector('.input-group:last-child .amount-input');
+const sendAmountInput = document.querySelector('.amount-input:not(.receive-amount)');
+const receiveAmountInput = document.querySelector('.receive-amount');
 const exchangeRateText = document.querySelector('.exchange-rate span');
 const refreshBtn = document.querySelector('.refresh-btn');
 const exploreBtn = document.querySelector('.explore-btn');
