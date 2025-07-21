@@ -33,6 +33,22 @@ body {
     align-items: center;
 }
 
+.signal-icon,
+.wifi-icon {
+    height: 12px;
+}
+
+.battery-icon {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.battery-percent {
+    font-size: 12px;
+    margin-left: 2px;
+}
+
 /* Header */
 .header {
     background-color: #2a2a30;
@@ -174,7 +190,9 @@ body {
 }
 
 .lock-icon {
-    font-size: 16px;
+    width: 14px;
+    height: 16px;
+    margin-right: 4px;
 }
 
 .dropdown-arrow {
@@ -196,14 +214,21 @@ body {
 .refresh-btn {
     background: none;
     border: none;
-    color: #00ff88;
-    font-size: 20px;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.5s ease;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .refresh-btn:hover {
-    transform: rotate(180deg);
+    transform: rotate(360deg);
+}
+
+.refresh-btn svg {
+    width: 16px;
+    height: 16px;
 }
 
 /* Explore Button */
@@ -250,9 +275,9 @@ body {
     font-size: 16px;
 }
 
-.trustpilot-icon {
-    color: #00ff88;
-    font-size: 20px;
+.trustpilot-logo {
+    width: 20px;
+    height: 20px;
 }
 
 /* Cookie Notice */

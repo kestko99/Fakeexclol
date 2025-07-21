@@ -62,8 +62,10 @@ function refreshRate() {
         exchangeRates[sendCurrency][receiveCurrency] = currentRate * (1 + variation);
         
         calculateExchange();
-        refreshBtn.style.transform = 'rotate(0deg)';
-    }, 500);
+        setTimeout(() => {
+            refreshBtn.style.transform = 'rotate(0deg)';
+        }, 100);
+    }, 400);
 }
 
 // Tab switching
