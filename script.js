@@ -152,15 +152,3 @@ function hideLoading() {
     exploreBtn.disabled = false;
 }
 
-// Simulate network status icons
-function updateNetworkStatus() {
-    const time = new Date();
-    const hours = time.getHours();
-    const minutes = time.getMinutes();
-    document.querySelector('.time').textContent = 
-        `${hours}:${minutes.toString().padStart(2, '0')}`;
-}
-
-// Update time every minute
-updateNetworkStatus();
-setInterval(updateNetworkStatus, 60000);
