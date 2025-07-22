@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crypto Selector Test</title>
+    <style>
+        body {
+            background: #1a1a1f;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .selector {
+            background: #2a2a35;
+            padding: 20px;
+            border: 3px solid #00ff88;
+            border-radius: 12px;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            margin: 20px;
+        }
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 2px solid #00ff88;
+            border-radius: 8px;
+            display: none;
+            color: black;
+            margin-top: 10px;
+        }
+        .dropdown.show {
+            display: block;
+        }
+        .option {
+            padding: 15px;
+            cursor: pointer;
+        }
+        .option:hover {
+            background: #00ff88;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click the green box to select a cryptocurrency:</h1>
+    
+    <div class="selector" id="selector">
+        <span id="selected">USD</span> ▼
+        <div class="dropdown" id="dropdown">
+            <div class="option" data-value="USD">USD - US Dollar</div>
+            <div class="option" data-value="BTC">BTC - Bitcoin</div>
+            <div class="option" data-value="ETH">ETH - Ethereum</div>
+            <div class="option" data-value="SOL">SOL - Solana</div>
+        </div>
+    </div>
+
+    <script>
+        const selector = document.getElementById('selector');
+        const dropdown = document.getElementById('dropdown');
+        const selected = document.getElementById('selected');
+        
+        selector.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('show');
+        });
+        
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                selected.textContent = option.dataset.value;
+                dropdown.classList.remove('show');
+            });
+        });
+        
+        document.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+        });
+    </script>
+</body>
+</html>

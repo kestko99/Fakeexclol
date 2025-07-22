@@ -882,6 +882,20 @@ document.addEventListener('click', () => {
     });
 });
 
+// Live rate updates
+setInterval(() => {
+    // Simulate rate changes (±0.5%)
+    Object.keys(exchangeRates).forEach(from => {
+        Object.keys(exchangeRates[from]).forEach(to => {
+            if (from !== to) {
+                const change = 0.995 + Math.random() * 0.01;
+                exchangeRates[from][to] *= change;
+            }
+        });
+    });
+    calculateExchange();
+}, 5000);
+
 // Initialize
 calculateExchange();
     </script>
